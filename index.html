@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Punjabi Collection | Premium Designer Wear</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #764ba2;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .products-section {
+            background: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #764ba2;
+            font-weight: 700;
+        }
+        
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            border: none;
+        }
+        
+        .viewer-3d {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .dress-showcase {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dress-image-3d {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .thumbnail-gallery {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .thumbnail-item {
+            width: 100px;
+            height: 140px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .thumbnail-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .thumbnail-item.active {
+            border-color: #764ba2;
+            box-shadow: 0 5px 20px rgba(118, 75, 162, 0.5);
+        }
+        
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .thumbnail-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.3rem;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+        
+        .size-selector {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .size-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #764ba2;
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .size-btn:hover, .size-btn.active {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .add-to-cart {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 70%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+        
+        .badge-new {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .cart-page, .checkout-page {
+            background: white;
+            min-height: 100vh;
+            padding: 3rem 0;
+            display: none;
+        }
+        
+        .cart-page.active, .checkout-page.active {
+            display: block;
+        }
+        
+        .cart-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .cart-item-image {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-price {
+            font-size: 1.2rem;
+            color: #764ba2;
+            font-weight: 600;
+        }
+        
+        .cart-item-size {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .qty-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #764ba2;
+            background: white;
+            color: #764ba2;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .qty-btn:hover {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .quantity-display {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .remove-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        
+        .cart-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .summary-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-top: 2px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background: white;
+            color: #764ba2;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .continue-shopping {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-top: 1rem;
+        }
+        
+        .continue-shopping:hover {
+            background: white;
+            color: #764ba2;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        .empty-cart i {
+            font-size: 5rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        .payment-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .payment-card {
+            background: white;
+            color: #333;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .payment-card i {
+            font-size: 3rem;
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .payment-card h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .payment-info {
+            text-align: left;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .order-success {
+            background: #4CAF50;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .order-success i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-gem"></i> Luxury Punjabi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collection">Collection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Elegance Redefined</h1>
+            <p class="hero-subtitle">Discover the finest collection of premium Punjabi dresses</p>
+            <button class="cta-button" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                Explore Collection
+            </button>
+        </div>
+    </section>
+
+    <section id="collection" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Premium Collection</h2>
+            <div class="row" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Page -->
+    <section class="cart-page" id="cartPage">
+        <div class="container">
+            <h2 class="section-title">আপনার কার্ট</h2>
+            <div class="row">
+                <div class="col-md-8" id="cartItemsContainer">
+                    <!-- Cart items will be inserted here -->
+                </div>
+                <div class="col-md-4">
+                    <div class="cart-summary">
+                        <h3>অর্ডার সামারি</h3>
+                        <div class="summary-row">
+                            <span>সাবটোটাল:</span>
+                            <span id="subtotal">৳০</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>ডেলিভারি চার্জ:</span>
+                            <span id="deliveryCharge">৳১০০</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>মোট:</span>
+                            <span id="totalAmount">৳১০০</span>
+                        </div>
+                        <button class="checkout-btn" onclick="proceedToCheckout()">
+                            <i class="fas fa-lock"></i> চেকআউট করুন
+                        </button>
+                        <button class="checkout-btn continue-shopping" onclick="continueShopping()">
+                            <i class="fas fa-arrow-left"></i> কেনাকাটা চালিয়ে যান
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Page -->
+    <section class="checkout-page" id="checkoutPage">
+        <div class="container">
+            <h2 class="section-title">চেকআউট</h2>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="cart-item">
+                        <h4>ডেলিভারি তথ্য</h4>
+                        <form id="checkoutForm">
+                            <div class="mb-3">
+                                <label class="form-label">পূর্ণ নাম *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">মোবাইল নাম্বার *</label>
+                                <input type="tel" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">সম্পূর্ণ ঠিকানা *</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">জেলা *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">পোস্ট কোড</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="payment-banner">
+                        <h3><i class="fas fa-credit-card"></i> পেমেন্ট মেথড</h3>
+                        <p>অর্ডার কনফার্ম করতে নিচের যেকোনো পদ্ধতিতে পেমেন্ট করুন</p>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-card">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4>bKash</h4>
+                                <div class="payment-info">
+                                    <strong>Personal: 01XXXXXXXXX</strong>
+                                    <p>Send Money করুন এবং Transaction ID আমাদের জানান</p>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-card">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4>Nagad</h4>
+                                <div class="payment-info">
+                                    <strong>Personal: 01XXXXXXXXX</strong>
+                                    <p>Send Money করুন এবং Transaction ID আমাদের জানান</p>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-card">
+                                <i class="fas fa-university"></i>
+                                <h4>Bank Transfer</h4>
+                                <div class="payment-info">
+                                    <strong>A/C: XXXX-XXXX-XXXX</strong>
+                                    <p>Bank: এক্সাম্পল বাংক লিমিটেড</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button class="checkout-btn" onclick="confirmOrder()">
+                                <i class="fas fa-check-circle"></i> অর্ডার কনফার্ম করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="cart-summary">
+                        <h3>অর্ডার সামারি</h3>
+                        <div id="checkoutSummary"></div>
+                        <div class="summary-row summary-total">
+                            <span>মোট পেমেন্ট:</span>
+                            <span id="finalTotal">৳০</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalProductName"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="viewer-3d">
+                                <div class="dress-showcase">
+                                    <img src="" alt="Dress" class="dress-image-3d" id="dress3DImage">
+                                </div>
+                            </div>
+                            <div class="thumbnail-gallery" id="thumbnailGallery">
+                                <!-- Thumbnails will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 id="modalProductPrice"></h3>
+                            <p id="modalProductDescription"></p>
+                            <h5>সাইজ সিলেক্ট করুন:</h5>
+                            <div class="size-selector">
+                                <button class="size-btn active" data-size="S">S</button>
+                                <button class="size-btn" data-size="M">M</button>
+                                <button class="size-btn" data-size="L">L</button>
+                                <button class="size-btn" data-size="XL">XL</button>
+                            </div>
+                            <h5 class="mt-4">বিশেষত্ব:</h5>
+                            <ul>
+                                <li>প্রিমিয়াম কোয়ালিটি ফেব্রিক</li>
+                                <li>হাতে করা সূচিকর্ম</li>
+                                <li>ঐতিহ্যবাহী ডিজাইন আধুনিক স্টাইলে</li>
+                                <li>বিশেষ অনুষ্ঠানের জন্য আদর্শ</li>
+                            </ul>
+                            <button class="add-to-cart mt-4">
+                                <i class="fas fa-shopping-bag"></i> কার্টে যোগ করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Luxury Punjabi Collection. All Rights Reserved.</p>
+            <div class="mt-3">
+                <a href="#" class="text-white mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-pinterest fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cart Management
+        let cart = [];
+        let selectedSize = 'M';
+        
+        const products = [
+            { id: 1, name: "Royal Elegance", price: "৳৫,৯৯৯", priceNum: 5999, 
+              images: ["images/dress1/front.PNG", "images/dress1/Back.PNG", "images/dress1/Close.PNG", "images/dress1/side.PNG"],
+              thumbnail: "images/dress1/front.PNG", new: true },
+            { id: 2, name: "Golden Majesty", price: "৳৬,৪৯৯", priceNum: 6499,
+              images: ["images/dress2/front.jpg", "images/dress2/side1.jpg", "images/dress2/back.jpg", "images/dress2/side2.jpg"],
+              thumbnail: "images/dress2/front.jpg", new: true },
+            { id: 3, name: "Crimson Beauty", price: "৳৫,৭৯৯", priceNum: 5799,
+              images: ["images/dress3/front.jpg", "images/dress3/side1.jpg", "images/dress3/back.jpg", "images/dress3/side2.jpg"],
+              thumbnail: "images/dress3/front.jpg", new: false },
+            { id: 4, name: "Azure Dream", price: "৳৬,৯৯৯", priceNum: 6999,
+              images: ["images/dress4/front.jpg", "images/dress4/side1.jpg", "images/dress4/back.jpg", "images/dress4/side2.jpg"],
+              thumbnail: "images/dress4/front.jpg", new: true },
+            { id: 5, name: "Emerald Grace", price: "৳৭,৪৯৯", priceNum: 7499,
+              images: ["images/dress5/front.jpg", "images/dress5/side1.jpg", "images/dress5/back.jpg", "images/dress5/side2.jpg"],
+              thumbnail: "images/dress5/front.jpg", new: false },
+            { id: 6, name: "Sunset Splendor", price: "৳৬,২৯৯", priceNum: 6299,
+              images: ["images/dress6/front.jpg", "images/dress6/side1.jpg", "images/dress6/back.jpg", "images/dress6/side2.jpg"],
+              thumbnail: "images/dress6/front.jpg", new: false },
+            { id: 7, name: "Pearl Princess", price: "৳৭,৯৯৯", priceNum: 7999,
+              images: ["images/dress7/front.jpg", "images/dress7/side1.jpg", "images/dress7/back.jpg", "images/dress7/side2.jpg"],
+              thumbnail: "images/dress7/front.jpg", new: true },
+            { id: 8, name: "Ruby Radiance", price: "৳৬,৭৯৯", priceNum: 6799,
+              images: ["images/dress8/front.jpg", "images/dress8/side1.jpg", "images/dress8/back.jpg", "images/dress8/side2.jpg"],
+              thumbnail: "images/dress8/front.jpg", new: false },
+            { id: 9, name: "Sapphire Shine", price: "৳৭,২৯৯", priceNum: 7299,
+              images: ["images/dress9/front.jpg", "images/dress9/side1.jpg", "images/dress9/back.jpg", "images/dress9/side2.jpg"],
+              thumbnail: "images/dress9/front.jpg", new: false },
+            { id: 10, name: "Lavender Love", price: "৳৫,৪৯৯", priceNum: 5499,
+              images: ["images/dress10/front.jpg", "images/dress10/side1.jpg", "images/dress10/back.jpg", "images/dress10/side2.jpg"],
+              thumbnail: "images/dress10/front.jpg", new: true },
+            { id: 11, name: "Coral Charm", price: "৳৬,০৯৯", priceNum: 6099,
+              images: ["images/dress11/front.jpg", "images/dress11/side1.jpg", "images/dress11/back.jpg", "images/dress11/side2.jpg"],
+              thumbnail: "images/dress11/front.jpg", new: false },
+            { id: 12, name: "Mint Marvel", price: "৳৫,৮৯৯", priceNum: 5899,
+              images: ["images/dress12/front.jpg", "images/dress12/side1.jpg", "images/dress12/back.jpg", "images/dress12/side2.jpg"],
+              thumbnail: "images/dress12/front.jpg", new: false },
+            { id: 13, name: "Peach Perfection", price: "৳৬,৫৯৯", priceNum: 6599,
+              images: ["images/dress13/front.jpg", "images/dress13/side1.jpg", "images/dress13/back.jpg", "images/dress13/side2.jpg"],
+              thumbnail: "images/dress13/front.jpg", new: true },
+            { id: 14, name: "Violet Virtue", price: "৳৬,৩৯৯", priceNum: 6399,
+              images: ["images/dress14/front.jpg", "images/dress14/side1.jpg", "images/dress14/back.jpg", "images/dress14/side2.jpg"],
+              thumbnail: "images/dress14/front.jpg", new: false },
+            { id: 15, name: "Amber Aura", price: "৳৬,৮৯৯", priceNum: 6899,
+              images: ["images/dress15/front.jpg", "images/dress15/side1.jpg", "images/dress15/back.jpg", "images/dress15/side2.jpg"],
+              thumbnail: "images/dress15/front.jpg", new: false },
+            { id: 16, name: "Turquoise Treasure", price: "৳৭,১৯৯", priceNum: 7199,
+              images: ["images/dress16/front.jpg", "images/dress16/side1.jpg", "images/dress16/back.jpg", "images/dress16/side2.jpg"],
+              thumbnail: "images/dress16/front.jpg", new: true },
+            { id: 17, name: "Magenta Magic", price: "৳৬,০৯৯", priceNum: 6099,
+              images: ["images/dress17/front.jpg", "images/dress17/side1.jpg", "images/dress17/back.jpg", "images/dress17/side2.jpg"],
+              thumbnail: "images/dress17/front.jpg", new: false },
+            { id: 18, name: "Ivory Impression", price: "৳৭,৬৯৯", priceNum: 7699,
+              images: ["images/dress18/front.jpg", "images/dress18/side1.jpg", "images/dress18/back.jpg", "images/dress18/side2.jpg"],
+              thumbnail: "images/dress18/front.jpg", new: true },
+            { id: 19, name: "Bronze Beauty", price: "৳৬,৪৯৯", priceNum: 6499,
+              images: ["images/dress19/front.jpg", "images/dress19/side1.jpg", "images/dress19/back.jpg", "images/dress19/side2.jpg"],
+              thumbnail: "images/dress19/front.jpg", new: false },
+            { id: 20, name: "Silver Sensation", price: "৳৮,৪৯৯", priceNum: 8499,
+              images: ["images/dress20/front.jpg", "images/dress20/side1.jpg", "images/dress20/back.jpg", "images/dress20/side2.jpg"],
+              thumbnail: "images/dress20/front.jpg", new: true }
+        ];
+
+        const productsGrid = document.getElementById('productsGrid');
+        
+        products.forEach(product => {
+            const col = document.createElement('div');
+            col.className = 'col-md-3 col-sm-6';
+            col.innerHTML = `
+                <div class="product-card" onclick="openProductModal(${product.id})">
+                    ${product.new ? '<span class="badge-new">NEW</span>' : ''}
+                    <img src="${product.thumbnail}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                </div>
+            `;
+            productsGrid.appendChild(col);
+        });
+
+        let currentImageIndex = 0;
+        let currentProduct = null;
+        const modal = new bootstrap.Modal(document.getElementById('productModal'));
+        
+        const viewLabels = ['সামনে', 'ডান পাশ', 'পিছনে', 'বাম পাশ'];
+
+        function openProductModal(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            document.getElementById('modalProductName').textContent = currentProduct.name;
+            document.getElementById('modalProductPrice').textContent = currentProduct.price;
+            document.getElementById('modalProductDescription').textContent = 
+                'সম্পূর্ণ প্রিমিয়াম ফেব্রিক এবং হাতে করা সূচিকর্ম দিয়ে তৈরি। বিশেষ অনুষ্ঠানের জন্য আদর্শ।';
+            
+            // Set first image as main
+            currentImageIndex = 0;
+            document.getElementById('dress3DImage').src = currentProduct.images[0];
+            
+            // Create thumbnails
+            createThumbnails();
+            
+            modal.show();
+        }
+
+        function createThumbnails() {
+            const gallery = document.getElementById('thumbnailGallery');
+            gallery.innerHTML = '';
+            
+            currentProduct.images.forEach((imgSrc, index) => {
+                const thumbDiv = document.createElement('div');
+                thumbDiv.className = `thumbnail-item ${index === 0 ? 'active' : ''}`;
+                thumbDiv.onclick = () => selectImage(index);
+                
+                thumbDiv.innerHTML = `
+                    <img src="${imgSrc}" alt="${viewLabels[index]}">
+                    <div class="thumbnail-label">${viewLabels[index]}</div>
+                `;
+                
+                gallery.appendChild(thumbDiv);
+            });
+        }
+
+        function selectImage(index) {
+            currentImageIndex = index;
+            document.getElementById('dress3DImage').src = currentProduct.images[index];
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail-item').forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                selectedSize = this.dataset.size;
+            });
+        });
+
+        document.querySelector('.add-to-cart').addEventListener('click', function() {
+            addToCart();
+        });
+        
+        // Add to Cart Function
+        function addToCart() {
+            const btn = document.querySelector('.add-to-cart');
+            const product = currentProduct;
+            
+            // Check if product with same size already exists
+            const existingItem = cart.find(item => item.id === product.id && item.size === selectedSize);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    priceNum: product.priceNum,
+                    image: product.thumbnail,
+                    size: selectedSize,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            
+            btn.innerHTML = '<i class="fas fa-check"></i> কার্টে যোগ হয়েছে!';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-shopping-bag"></i> কার্টে যোগ করুন';
+                modal.hide();
+            }, 1000);
+        }
+        
+        // Update Cart Count
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+        
+        // Show Cart Page
+        document.querySelector('.nav-link[href="#"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            showCartPage();
+        });
+        
+        function showCartPage() {
+            document.querySelector('.hero-section').style.display = 'none';
+            document.querySelector('.products-section').style.display = 'none';
+            document.getElementById('cartPage').classList.add('active');
+            document.getElementById('checkoutPage').classList.remove('active');
+            renderCart();
+        }
+        
+        // Render Cart Items
+        function renderCart() {
+            const container = document.getElementById('cartItemsContainer');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>আপনার কার্ট খালি</h3>
+                        <p>এখনও কোনো পণ্য যোগ করা হয়নি</p>
+                        <button class="cta-button" onclick="continueShopping()">কেনাকাটা শুরু করুন</button>
+                    </div>
+                `;
+                updateCartSummary();
+                return;
+            }
+            
+            container.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${item.price}</div>
+                        <div class="cart-item-size">সাইজ: ${item.size}</div>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="decreaseQuantity(${index})">-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="qty-btn" onclick="increaseQuantity(${index})">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${index})">
+                        <i class="fas fa-trash"></i> মুছুন
+                    </button>
+                </div>
+            `).join('');
+            
+            updateCartSummary();
+        }
+        
+        // Cart Functions
+        function increaseQuantity(index) {
+            cart[index].quantity += 1;
+            renderCart();
+            updateCartCount();
+        }
+        
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+                renderCart();
+                updateCartCount();
+            }
+        }
+        
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCart();
+            updateCartCount();
+        }
+        
+        function updateCartSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.priceNum * item.quantity), 0);
+            const deliveryCharge = cart.length > 0 ? 100 : 0;
+            const total = subtotal + deliveryCharge;
+            
+            document.getElementById('subtotal').textContent = `৳${subtotal.toLocaleString()}`;
+            document.getElementById('deliveryCharge').textContent = `৳${deliveryCharge}`;
+            document.getElementById('totalAmount').textContent = `৳${total.toLocaleString()}`;
+        }
+        
+        function continueShopping() {
+            document.querySelector('.hero-section').style.display = 'flex';
+            document.querySelector('.products-section').style.display = 'block';
+            document.getElementById('cartPage').classList.remove('active');
+            document.getElementById('checkoutPage').classList.remove('active');
+        }
+        
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('আপনার কার্ট খালি! প্রথমে পণ্য যোগ করুন।');
+                return;
+            }
+            
+            document.getElementById('cartPage').classList.remove('active');
+            document.getElementById('checkoutPage').classList.add('active');
+            renderCheckoutSummary();
+        }
+        
+        function renderCheckoutSummary() {
+            const container = document.getElementById('checkoutSummary');
+            const subtotal = cart.reduce((sum, item) => sum + (item.priceNum * item.quantity), 0);
+            const deliveryCharge = 100;
+            const total = subtotal + deliveryCharge;
+            
+            container.innerHTML = cart.map(item => `
+                <div class="summary-row">
+                    <span>${item.name} (${item.size}) x${item.quantity}</span>
+                    <span>৳${(item.priceNum * item.quantity).toLocaleString()}</span>
+                </div>
+            `).join('') + `
+                <div class="summary-row">
+                    <span>ডেলিভারি:</span>
+                    <span>৳${deliveryCharge}</span>
+                </div>
+            `;
+            
+            document.getElementById('finalTotal').textContent = `৳${total.toLocaleString()}`;
+        }
+        
+        function confirmOrder() {
+            const form = document.getElementById('checkoutForm');
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // Show success message
+            document.getElementById('checkoutPage').innerHTML = `
+                <div class="container">
+                    <div class="order-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>অর্ডার সফলভাবে সম্পন্ন হয়েছে!</h2>
+                        <p>আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।</p>
+                        <p>অর্ডার নাম্বার: #${Math.floor(Math.random() * 10000)}</p>
+                        <button class="cta-button mt-4" onclick="location.reload()">
+                            হোম পেজে ফিরে যান
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Clear cart
+            cart = [];
+            updateCartCount();
+        }
+    </script>
+</body>
+</html>
